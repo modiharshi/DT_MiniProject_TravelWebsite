@@ -1,0 +1,63 @@
+/* Design tokens. Components read these; nothing else hard-codes a colour. */
+:root {
+  /* palette */
+  --ink: #2b3562;
+  --ink-soft: #4a5384;
+  --teal: #3e8ca0;
+  --teal-text: #256478;
+  --rasp: #a33c60;
+  --cream: #ebddbd;
+  --terra: #e9a582;
+  --aqua: #bde8e8;
+  --leaf: #6fa35b;
+  --yellow: #f4c430;
+  --parch: #f6f0e4;
+  --muted: #5c617a;
+
+  /* status (never colour alone: always paired with text or an icon) */
+  --ok: #2e6b3a;
+  --warn: #8a5a00;
+  --err: #9b2226;
+
+  /* type */
+  --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script: 'Yellowtail', 'Brush Script MT', cursive;
+  --font-hand: 'Caveat', 'Segoe Script', 'Bradley Hand', cursive;
+  --font-tag: 'Oswald', 'Arial Narrow', 'Impact', sans-serif;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2.1rem;
+  --step-4: clamp(2.6rem, 4.6vw, 3.9rem);
+  --step-5: clamp(3.4rem, 6.5vw, 5.6rem);
+  --lh-tight: 1.05;
+  --lh-body: 1.55;
+  --measure: 34ch;
+
+  /* space, borders, radii, shadows */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 48px;
+  --bw: 2px;
+  --r-1: 3px; --r-2: 10px;
+  --shadow-hard: 3px 3px 0 var(--ink);
+  --shadow-soft: 0 10px 30px rgba(43, 53, 98, 0.18);
+
+  /* layers */
+  --z-map: 0; --z-wash: 2; --z-grain: 3; --z-panel: 10; --z-header: 20;
+
+  /* motion */
+  --dur-fast: 150ms; --dur-med: 380ms; --dur-slow: 900ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-stamp: cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+/* Registered so a city theme can cross-fade instead of snapping. */
+@property --accent  { syntax: '<color>'; inherits: true; initial-value: #a33c60; }
+@property --accent-2 { syntax: '<color>'; inherits: true; initial-value: #d9784a; }
+@property --accent-3 { syntax: '<color>'; inherits: true; initial-value: #f4c430; }
+
+.app { --accent: #a33c60; --accent-2: #d9784a; --accent-3: #f4c430; transition: --accent 0.9s, --accent-2 0.9s, --accent-3 0.9s; }
+.app[data-theme='mumbai']  { --accent: #b85c3c; --accent-2: #6fc3c3; --accent-3: #f4c430; }
+.app[data-theme='jaipur']  { --accent: #a33c60; --accent-2: #d9784a; --accent-3: #f2a91e; }
+.app[data-theme='udaipur'] { --accent: #3b4a9a; --accent-2: #5a9fd0; --accent-3: #c99a2e; }
+.app[data-theme='manali']  { --accent: #2f6b4f; --accent-2: #9cc9e6; --accent-3: #8a5a3b; }
